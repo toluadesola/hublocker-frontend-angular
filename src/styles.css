@@ -1,1 +1,163 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-custom-nav {
+    background-color: #d7b343;
+    height: 80px;
+    }
+    
+    .navbar-nav {
+        padding-left: 70px;
+    }
+    
+    .navbar-brand {
+    padding-left: 10px;
+    }
+    
+    .nav-item {
+    color: #000;
+    font-weight: 600;
+    padding-right:5px;
+    }
+    
+    .btn-menu {
+        border-radius: 20px;
+        background-color: #aba044;
+        border: none;
+        color: #fff;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .hero {
+    background: url("assets/images/desk-593327_1920.jpeg") no-repeat center center fixed;
+    height: 550px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+    
+    .hero > h1
+    {
+        padding-top: 10%;
+        font-size: 50px;
+    }
+    
+    .search__group {
+        height: 80px;
+    }
+    
+    .search__input{
+        padding-left: 30px;
+        opacity: 0.9;
+    }
+    
+    
+    .btn-search {
+    background-color: #d75030;
+    color: #fff;
+    border: none;
+        height: 65px;
+        width: 250px;
+        margin-top: 6px;
+        margin-left: -270px !important;
+    
+    }
+    
+    .btn-big-text {
+        padding-top: 8px;
+    }
+    
+    .btn-sm-text {
+        margin-top: -15px;
+        background: #fff;
+        color: #000;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: -8px;
+        font-size: 12px;
+    }
+    
+    .lockers-title
+    {
+        background: #f3f3f3;
+        padding: 15px;
+    }
+    
+    .lockers-title-p
+    {
+        padding-top: 10px;
+    }
+    
+    .select__form {
+        padding-top: 5px;
+    }
+    
+    .text-right {
+    text-align: right;
+    }
+    
+    .select-items {
+    width: 50%;
+    margin-bottom: 20px;
+    }
+    
+    .size-guide {
+    margin-right: 19px;
+    }
+    
+    .items-image {
+    width: 100% !important;
+    height: 300px;
+    }
+    .items-title-a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    
+    .star {
+    margin-right: 4px;
+    }
+    
+    @media only screen and (max-width: 991px) {
+    .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+        background: #d7b343;
+        padding-top: 50px;
+        border-top: 1px solid #c1a13c;
+        text-align: center;
+        padding-bottom: 50px;
+        font-size: 20px;
+        margin-top: 31px;
+        z-index: 1000;
+    }
+    .navbar-nav {
+        padding-left: 10px;
+    }
+    
+    .search__group {
+        width: 100% !important;
+        height: 80px;
+    }
+    .btn-search {
+        background-color: #d75030;
+        color: #fff;
+        border: none;
+        height: 85px;
+        width: 100px;
+        margin-top: -1px;
+        margin-left: 0px !important;
+        z-index: 1;
+    }
+    .hero > h1 {
+        padding-top: 20%;
+        font-size: 50px;
+    }
+    .btn-sm-text {
+    display: none;
+    }
+    }
+    
+    
