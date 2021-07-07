@@ -3,5 +3,12 @@ export interface Locker{
     name: string;
     price: string;
     noOfSlot: number;
-    location: Record<string,any>;
+    location: Location;
+}
+
+interface Location{
+    id: number;
+    address: string;
+    city: string;
+    state: string;
 }
