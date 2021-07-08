@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Locker } from '../locker';
+import { Location } from '../location';
 import { LockerService } from '../locker.service';
 
 
@@ -14,7 +15,10 @@ export class HomeComponent implements OnInit {
 
   
   public lockers: Locker[] = [];
-  public results: Locker[]= [];
+  public numberOfLockers: number | undefined;
+  public collectionLength!: number;
+  public location: Location | undefined;
+
 
   constructor(
     private lockerService: LockerService,
@@ -22,7 +26,7 @@ export class HomeComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.getLockers();
+    this.getAllLockers();
   }
 
   public goToPage(pageName: string): void{
@@ -30,10 +34,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`${pageName}`])
   }
 
-  public getLockers(): void {
+  public getAllLockers(): void {
+    this.collectionLength = 5
     this.lockerService.getLockers().subscribe(
       (response: Locker[]) => {
         this.lockers = response;
+        this.location = this.lockers[0].location;
+        this.getNumberOfLockers()
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -42,16 +49,31 @@ export class HomeComponent implements OnInit {
   }
 
   public searchLockers(key: string) : void{
-    const result: Locker[] = [];
+    let result: Locker[] = [];
     for(let locker of this.lockers){
-      if(locker.location.city.toLowerCase().indexOf(key.toLowerCase()) !== -1){
+      if(locker.location.city.toLowerCase().trim().indexOf(key.toLowerCase()) !== -1 && key !== null){
         result.push(locker);
       }
     }
-    this.results = result
-    if(result.length === 0 || !key){
-      this.getLockers();
+    if(!key){
+      this.getAllLockers();
     }
+    this.lockers = result
+    this.getNumberOfLockers()
+  }
+
+  private getNumberOfLockers(): void{
+    let i:number;
+    let count = 0;
+    for(let i = 0; i < this.lockers.length; i++){
+      count += this.lockers[i].noOfSlot;
+    }
+    this.numberOfLockers = count;
+
+  }
+
+  public viewAllLockers(): void{
+    this.collectionLength = this.lockers.length
   }
 
 }
